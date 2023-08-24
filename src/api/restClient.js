@@ -1,10 +1,7 @@
 import baseApi from "./baseapi";
 
 class restClient extends baseApi {
-  /*  constructor(option) {
-        super(option);
-    }
-*/
+
     async registerUser(data) {
         console.log(data);
         const option = {
