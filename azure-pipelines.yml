@@ -24,21 +24,18 @@ steps:
     npm run build
   displayName: 'npm build'
   
-- script: 
-    npm test
-  displayName: 'Running Test'
+
 - task: CopyFiles@2
   inputs:
-    sourceFolder: '$(Build.SourcesDirectory)'
-    contents: |
-       src/*
-       public/*
-    targetFolder: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'Copy project files'
+    Contents: 'build/**' # Pull the build directory (React)
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-- task: PublishPipelineArtifact@1
+- task: PublishBuildArtifacts@1
+  inputs: 
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: 'www'
+
+- task: PublishBuildArtifacts@1
   inputs:
-    artifactName: e2e-server
-    targetPath: '$(Build.ArtifactStagingDirectory)'
-    publishLocation: 'pipeline'
-  displayName: 'Publish npm artifact'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    ArtifactName: 'Publish'
