@@ -8,7 +8,6 @@ trigger:
 
 pool:
   name: Test-Pool
-  vmImage: ubuntu-latest
 
 
 steps:
