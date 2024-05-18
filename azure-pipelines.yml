@@ -29,13 +29,14 @@ steps:
   inputs:
     Contents: 'build/**' # Pull the build directory (React)
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    
 
-- task: PublishBuildArtifacts@1
-  inputs: 
-    PathtoPublish: $(Build.ArtifactStagingDirectory)
-    ArtifactName: 'www'
+#- task: PublishBuildArtifacts@1
+#  inputs: 
+#    PathtoPublish: $(Build.ArtifactStagingDirectory)
+#    ArtifactName: 'www'
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
-    ArtifactName: 'Publish'
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+#    ArtifactName: 'Publish'
