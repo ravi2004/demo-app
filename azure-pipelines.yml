@@ -24,6 +24,9 @@ steps:
     npm run build
   displayName: 'npm build'
   
+- script: 
+    npm test
+  displayName: 'Running Test'
 - task: CopyFiles@2
   inputs:
     sourceFolder: '$(Build.SourcesDirectory)'
