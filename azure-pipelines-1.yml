@@ -12,6 +12,7 @@ variables:
 
 pool:
   name: Test-Pool
+  vmImage: ubuntu-latest
   tag: '$(Build.BuildId)'
 
 
@@ -31,7 +32,7 @@ steps:
   displayName: Build an image
   inputs:
     containerRegistry: 'docker-connection'
-    repository: 'ravikanchan2004/dockertest'
+    repository: 'ravikanchan2004/dockerprd'
     command: build
     arguments: --no-cache
     #dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
@@ -41,7 +42,7 @@ steps:
   displayName: Push the image
   inputs:
     containerRegistry: 'docker-connection'
-    repository: 'ravikanchan2004/dockertest'
+    repository: 'ravikanchan2004/dockerprd'
     command: push
   #  tags: |
   #    $(tag)
