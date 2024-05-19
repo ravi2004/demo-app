@@ -34,5 +34,4 @@ steps:
     repository: 'ravikanchan2004/dockertest'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    arguments: '--no-cache'
 
