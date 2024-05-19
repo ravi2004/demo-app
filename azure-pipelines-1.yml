@@ -31,7 +31,8 @@ steps:
   displayName: 'Build and Push Docker Image'
   inputs:
     containerRegistry: 'docker-connection'
-    repository: 'ravikanchan2004/testdocker'
+    repository: 'ravikanchan2004/testdocker2'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+    arguments: '--no-cache'
 
