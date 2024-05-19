@@ -6,14 +6,21 @@
 trigger:
 - main
 
+variables:
+- name: DOCKER_BUILDKIT
+  value: 1
+
 pool:
   name: Test-Pool
+  tag: '$(Build.BuildId)'
+
 
 steps:
 - task: NodeTool@0
+  displayName: 'Install Node.js'
   inputs:
     versionSpec: '18.13.0'
-  displayName: 'Install Node.js'
+  
 
 - script: |
     npm install
@@ -21,13 +28,10 @@ steps:
   displayName: 'npm install and build'
 
 - task: Docker@2
-
+  displayName: 'Build and Push Docker Image'
   inputs:
     containerRegistry: 'docker-connection'
     repository: 'ravikanchan2004/testdocker'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-variables:
-- name: DOCKER_BUILDKIT
-  value: 1
-  
+
