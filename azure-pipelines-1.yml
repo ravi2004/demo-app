@@ -34,7 +34,7 @@ steps:
     repository: 'ravikanchan2004/dockertest'
     command: build
     arguments: --no-cache
-    dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+    #dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
     tags: |
       $(tag)
 - task: Docker@2
