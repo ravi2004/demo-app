@@ -21,8 +21,13 @@ steps:
   displayName: 'npm install and build'
 
 - task: Docker@2
+
   inputs:
     containerRegistry: 'docker-connection'
     repository: 'ravikanchan2004/testdocker'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+variables:
+- name: DOCKER_BUILDKIT
+  value: 1
+  
