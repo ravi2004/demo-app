@@ -28,31 +28,31 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: Docker@2
-  displayName: Build an image
-  inputs:
-    containerRegistry: 'docker-connection'
-    repository: 'ravikanchan2004/dockerprd'
-    command: build
-    arguments: --no-cache
-    #dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-   # tags: |
-   #   $(tag)
-- task: Docker@2
-  displayName: Push the image
-  inputs:
-    containerRegistry: 'docker-connection'
-    repository: 'ravikanchan2004/dockerprd'
-    command: push
-  #  tags: |
-  #    $(tag)
 
-
-#- task: Docker@
-#  displayName: 'Build and Push Docker Image'
+#- task: Docker@2
+#  displayName: Build an image
 #  inputs:
 #    containerRegistry: 'docker-connection'
-#    repository: 'ravikanchan2004/dockertest'
-#    command: 'buildAndPush'
-#    Dockerfile: '**/Dockerfile'
+#    repository: 'ravikanchan2004/dockerprd'
+#    command: build
+#    arguments: --no-cache
+#    #dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+#   # tags: |
+#      $(tag)
+#- task: Docker@2
+#  displayName: Push the image
+#  inputs:
+#    containerRegistry: 'docker-connection'
+#    repository: 'ravikanchan2004/dockerprd'
+#    command: push
+#    tags: |
+#      $(tag)
 
+
+- task: Docker@2
+  displayName: 'Build and Push Docker Image'
+  inputs:
+    containerRegistry: 'docker-connection'
+    repository: 'ravikanchan2004/dockertest'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
