@@ -17,16 +17,16 @@ pool:
 
 
 steps:
-- task: NodeTool@0
-  displayName: 'Install Node.js'
-  inputs:
-    versionSpec: '18.13.0'
+#- task: NodeTool@0
+#  displayName: 'Install Node.js'
+#  inputs:
+#    versionSpec: '18.13.0'
   
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+#- script: |
+#    npm install
+#    npm run build
+#  displayName: 'npm install and build'
 
 
 #- task: Docker@2
