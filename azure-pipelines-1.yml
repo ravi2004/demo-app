@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: Docker-Pool
+  name: Test-Pool
 
 steps:
 - task: NodeTool@0
