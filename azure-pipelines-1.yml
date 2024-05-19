@@ -35,16 +35,16 @@ steps:
     command: build
     arguments: --no-cache
     #dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
-    tags: |
-      $(tag)
+   # tags: |
+   #   $(tag)
 - task: Docker@2
   displayName: Push the image
   inputs:
     containerRegistry: 'docker-connection'
     repository: 'ravikanchan2004/dockertest'
     command: push
-    tags: |
-      $(tag)
+  #  tags: |
+  #    $(tag)
 
 
 #- task: Docker@
