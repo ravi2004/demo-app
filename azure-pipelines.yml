@@ -18,11 +18,8 @@ steps:
 
 - script: |
     npm install
-  displayName: 'npm install'
-
-- script: |
     npm run build
-  displayName: 'npm build'
+  displayName: 'npm Install and build'
   
 
 - task: CopyFiles@2
@@ -31,8 +28,7 @@ steps:
       src/*
       public/*
 #    Contents: 'build/**' # Pull the build directory (React)
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 - task: PublishPipelineArtifact@1
   inputs:
