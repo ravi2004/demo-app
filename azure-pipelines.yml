@@ -27,15 +27,25 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: 'build/**' # Pull the build directory (React)
+    Contents: |
+      src/*
+      public/*
+#    Contents: 'build/**' # Pull the build directory (React)
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     
 
-#- task: PublishBuildArtifacts@1
-#  inputs: 
-#    PathtoPublish: $(Build.ArtifactStagingDirectory)
-#    ArtifactName: 'www'
+- task: PublishPipelineArtifact@1
+  inputs:
+    artifactName: e2e-server
+    targetPath: '$(Build.ArtifactStagingDirectory)'
+    publishLocation: 'pipeline'
+  displayName: 'Publish npm artifact'
 
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    ArtifactName: www-server
+#    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    
 #- task: PublishBuildArtifacts@1
 #  inputs:
 #    PathtoPublish: '$(System.DefaultWorkingDirectory)'
