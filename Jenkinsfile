@@ -3,6 +3,9 @@ pipeline {
         label "ubuntutest"
     }
     stages {
+        stage('Start') {
+            echo "Starting Build"
+        }
         stage('Build') { 
             steps {
                 //sh 'npm install'
