@@ -11,7 +11,7 @@ pool:
 
 variables:
   # Define your resource names  
-  azureSubscriptionConnection: 'AzureDevops-Connection'
+  azureSubscriptionConnection: 'devopsacr1975-connection'
   acrRegistryName: 'testacr1975.azurecr.io'
   imageRepository: 'demoapp'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
