@@ -24,10 +24,10 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: |
-      src/*
-      public/*
-#    Contents: 'build/**' # Pull the build directory (React)
+#    Contents: |
+#      src/*
+#      public/*
+    Contents: 'build/**' # Pull the build directory (React)
     TargetFolder: '$(Build.ArtifactStagingDirectory)'    
 
 - task: PublishPipelineArtifact@1
