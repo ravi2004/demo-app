@@ -10,32 +10,44 @@ pool:
   name: 'Azure Pipelines'
 
 
-steps:
-- task: UseNode@1
-  inputs:
-    version: '22.22.0'
-  displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    npm run build
-  displayName: 'npm Install and build'
+steps:
+- task: Docker@2
+  displayName: 'Generating Docker Image'
+  inputs:
+   command: build
+   dockerFile: '$(Build.SourcesDirectory)/Dockerfile'
+   repository: '$imageName'
+   tags: |
+      $(Build.BuildId)
+      latest
+
+    
+#- task: UseNode@1
+#  inputs:
+#    version: '22.22.0'
+#  displayName: 'Install Node.js'
+
+#- script: |
+#    npm install
+#    npm run build
+#  displayName: 'npm Install and build'
   
 
-- task: CopyFiles@1
-  inputs:
+#- task: CopyFiles@1
+#  inputs:
 #    Contents: |
 #      src/*
 #      public/*
-    Contents: 'build/**' # Pull the build directory (React)
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'    
+#    Contents: 'build/**' # Pull the build directory (React)
+#    TargetFolder: '$(Build.ArtifactStagingDirectory)'    
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    artifactName: www-server
-    targetPath: '$(Build.ArtifactStagingDirectory)'
-    publishLocation: 'pipeline'
-  displayName: 'Publish npm artifact'
+#- task: PublishPipelineArtifact@1
+#  inputs:
+#    artifactName: www-server
+#    targetPath: '$(Build.ArtifactStagingDirectory)'
+#    publishLocation: 'pipeline'
+#  displayName: 'Publish npm artifact'
 
 #- task: PublishBuildArtifacts@1
 #  inputs:
